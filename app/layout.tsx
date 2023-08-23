@@ -5,7 +5,7 @@ import Nav from './nav';
 import React, { Suspense } from 'react';
 
 export const metadata = {
-  title: 'Next.js 13 + PlanetScale + NextAuth + Tailwind CSS',
+  title: 'Software Delivery Assessment',
   description:
     'A user admin dashboard configured with Next.js, PlanetScale, NextAuth, Tailwind CSS, TypeScript, ESLint, and Prettier.'
 };

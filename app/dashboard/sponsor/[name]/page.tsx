@@ -5,7 +5,7 @@ import {
   Card,
   Col,
   Flex,
-  Grid,
+  Grid, Legend,
   List,
   ListItem, Table, TableBody,
   TableCell, TableHead, TableHeaderCell,
@@ -13,7 +13,7 @@ import {
   Text,
   Title
 } from '@tremor/react';
-import { ArrowsPointingOutIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
+import { ArrowsPointingOutIcon, CheckBadgeIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
@@ -105,20 +105,20 @@ export default function Page({ params }: { params: { name: string } }) {
   const openModal = (): any => setIsOpen(true);
   const closeModal = (): any => setIsOpen(false);
   return <main>
-    <Title>{params.name}</Title>
-
+    <Title className='pl-4 pt-3'>{params.name.toUpperCase()}</Title>
+    <Legend categories={['Gold Sponsor']} className='pl-3' color={'amber'} colors={['amber']} />
     <Grid numItemsLg={6} className='gap-6 mt-6'>
       {/* Main section */}
       <Col numColSpanLg={4}>
         <Card className='h-full'>
-          <Text><Bold>Description</Bold></Text>
+          <Text className='pt-3'><Bold>Description</Bold></Text>
           <Text>Confluent is a digital transformation pioneer that develops sustainable solutions based on new
             technologies
             including artificial intelligence and blockchain/DLT. Confluent experts create and implement scalable
             software
             applications that make access to innovative business models safe and easy.</Text>
           <Flex className='mt-6'>
-            <Text>
+            <Text className='pt-3'>
               <Bold>Urls</Bold>
             </Text>
           </Flex>
@@ -135,10 +135,10 @@ export default function Page({ params }: { params: { name: string } }) {
               </ListItem>
             ))}
           </List>
-          <Text><Bold>Notifications</Bold></Text>
+          <Text className='pt-3'><Bold>Notifications</Bold></Text>
           {notifications.map((notification) => <Callout
-            color='neutral'
-            icon={CheckCircleIcon}
+            color={notification.status == 'sent' ? 'green' : 'blue'}
+            icon={notification.status == 'sent' ? CheckCircleIcon : CheckBadgeIcon}
             key={notification.id}
             title={notification.title}>{notification.message}</Callout>)}
 
