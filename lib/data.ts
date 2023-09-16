@@ -1131,6 +1131,7 @@ export const userResults: UserResults = {
   user: {
     id: 1,
     name: 'Anyul Rivas',
+    username: 'anyulled',
     email: 'anyul.rivas@ingrammicro.com',
     team: 'Foundation',
     role: 'Software Engineer'

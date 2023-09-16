@@ -6,11 +6,14 @@ import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { signIn, signOut } from 'next-auth/react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { Text } from '@tremor/react';
 
 const navigation = [
   { name: 'Dashboard', href: '/' },
-
-  { name: 'Assessment', href: '/assessment' }
+  { name: 'Profile', href: '/user' },
+  { name: 'Assessment', href: '/assessment' },
+  { name: 'Sessions', href: '/sessions' }
 ];
 
 function classNames(...classes: string[]) {
@@ -93,19 +96,28 @@ export default function Navbar({ user }: { user: any }) {
                   >
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       {user ? (
-                        <Menu.Item>
-                          {({ active }) => (
-                            <button
-                              className={classNames(
-                                active ? 'bg-gray-100' : '',
-                                'flex w-full px-4 py-2 text-sm text-gray-700'
-                              )}
-                              onClick={() => signOut()}
-                            >
-                              Sign out
-                            </button>
-                          )}
-                        </Menu.Item>
+                        <>
+                          <Menu.Item>
+                            {({ active }) => (
+                              <button
+                                className={classNames(
+                                  active ? 'bg-gray-100' : '',
+                                  'flex w-full px-4 py-2 text-sm text-gray-700'
+                                )}
+                                onClick={() => signOut()}
+                              >
+                                Sign out
+                              </button>
+                            )}
+                          </Menu.Item>
+                          <Menu.Item>
+                            <Link href={'user'}>
+                              <Text className="flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                My profile
+                              </Text>
+                            </Link>
+                          </Menu.Item>
+                        </>
                       ) : (
                         <Menu.Item>
                           {({ active }) => (

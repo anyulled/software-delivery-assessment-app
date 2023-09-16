@@ -1,7 +1,8 @@
-import { Card, Title, Text } from '@tremor/react';
+import { Card, List, ListItem, Text, Title } from '@tremor/react';
 import { queryBuilder } from '../lib/planetscale';
 import Search from './search';
 import UsersTable from './table';
+import { getTopics } from '../lib/ResultRepository';
 
 export const dynamic = 'force-dynamic';
 
@@ -12,10 +13,12 @@ export default async function IndexPage({
 }) {
   const search = searchParams.q ?? '';
   const users = await queryBuilder
-    .selectFrom('users')
-    .select(['id', 'name', 'username', 'email'])
+    .selectFrom('user')
+    .select(['id', 'name', 'username', 'email', 'role'])
     .where('name', 'like', `%${search}%`)
     .execute();
+
+  const topics = await getTopics();
 
   return (
     <main className="p-4 md:p-10 mx-auto max-w-7xl">
@@ -26,6 +29,15 @@ export default async function IndexPage({
       <Search />
       <Card className="mt-6">
         <UsersTable users={users} />
+      </Card>
+      <Card className="mt-6">
+        <Title>Users</Title>
+        <Text>A list of Topics.</Text>
+        <List>
+          {topics.map((topic) => (
+            <ListItem key={topic.id}>{topic.name}</ListItem>
+          ))}
+        </List>
       </Card>
     </main>
   );

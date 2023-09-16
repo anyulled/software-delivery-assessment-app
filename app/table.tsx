@@ -1,11 +1,13 @@
-import { Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow, Text } from '@tremor/react';
-
-interface User {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-}
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeaderCell,
+  TableRow,
+  Text
+} from '@tremor/react';
+import { User } from '../lib/types';
 
 export default async function UsersTable({ users }: { users: User[] }) {
   return (
@@ -14,6 +16,7 @@ export default async function UsersTable({ users }: { users: User[] }) {
         <TableRow>
           <TableHeaderCell>Name</TableHeaderCell>
           <TableHeaderCell>Username</TableHeaderCell>
+          <TableHeaderCell>Role</TableHeaderCell>
           <TableHeaderCell>Email</TableHeaderCell>
         </TableRow>
       </TableHead>
@@ -23,6 +26,9 @@ export default async function UsersTable({ users }: { users: User[] }) {
             <TableCell>{user.name}</TableCell>
             <TableCell>
               <Text>{user.username}</Text>
+            </TableCell>
+            <TableCell>
+              <Text>{user.role}</Text>
             </TableCell>
             <TableCell>
               <Text>{user.email}</Text>

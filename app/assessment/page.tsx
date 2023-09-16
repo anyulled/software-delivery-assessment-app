@@ -61,7 +61,7 @@ export default function PlaygroundPage() {
       <Head>
         <title>Software Delivery Assessment</title>
       </Head>
-      <main>
+      <main className="w-3/5 mx-auto">
         <Title className="pl-3.5">Software Delivery Assessment</Title>
         <Text className="pl-3.5">Iteration Date: 10/07/2023 </Text>
 

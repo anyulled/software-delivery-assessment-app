@@ -15,14 +15,6 @@ export interface QuestionEvaluation {
   evaluation: number;
 }
 
-export interface User {
-  id: number;
-  name: string;
-  email: string;
-  team: string;
-  role: string;
-}
-
 export interface Topic {
   name: string;
   description: string;
@@ -52,4 +44,13 @@ export interface TopicInformationProps {
   category: string;
   value: number;
   data: TrackerBlockProps[];
+}
+
+export interface User {
+  id: number;
+  name: string;
+  username: string;
+  role: string;
+  email: string;
+  team?: string;
 }
