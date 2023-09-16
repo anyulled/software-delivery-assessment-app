@@ -34,7 +34,7 @@ export interface SessionsTopic {
 
 interface Session {
   id: Generated<number>;
-  user: User;
+  user_id: User;
   date: Date;
   organization_id: number;
 }
