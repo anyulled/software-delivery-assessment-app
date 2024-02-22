@@ -51,6 +51,6 @@
   "devDependencies": {
     "cypress": "^13.2.0",
     "eslint-plugin-cypress": "^2.14.0",
-    "start-server-and-test": "^2.0.0"
+    "start-server-and-test": "^2.0.3"
   }
 }
