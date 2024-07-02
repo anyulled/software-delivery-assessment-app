@@ -12,7 +12,7 @@
     "component:headless": "cypress run --component"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.17",
+    "@headlessui/react": "^2.0.0",
     "@heroicons/react": "^2.0.18",
     "@planetscale/database": "^1.11.0",
     "@prisma/client": "^5.2.0",
