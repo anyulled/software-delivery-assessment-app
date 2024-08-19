@@ -3,5 +3,6 @@
   "extends": [
     "config:recommended"
   ],
+  "reviewers": ["required:anyulled"],
   "assignees":["anyulled@gmail.com"]
 }
